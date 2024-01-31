@@ -1,0 +1,283 @@
+=======================================
+CSRF - What is CSRF and how it works ?
+=======================================
+
+---> CSRF is a type of security vulnerability that occurs when an attacker tricks a user into unknowingly making an unwanted request to a             web application on which the user is authenticated. The attack works by exploiting the trust that a web application has in a user's browser. It can lead to various malicious actions, such as changing account settings, making financial transactions, or even performing actions on behalf of the user without their consent.
+
+---> How CSRF Works:
+
+-> User Authentication: A user logs into a website and is issued a session cookie, which is stored in their browser. This cookie   identifies the user's session.
+
+-> Attacker's Trickery: The attacker creates a malicious website or email containing a link or script that triggers an action on the target website. For example, the attacker might create a fake "Change Password" form.
+
+-> User Interaction: The user visits the attacker's website or clicks on a link in the malicious email. The malicious script on this page performs a request (e.g., changing the user's password) to the target website.
+
+-> Unintentional Action: Since the user is already authenticated on the target website, their browser automatically sends the request with the user's credentials, and the action is executed without the user's knowledge.
+-----------------------------------------------------------------------------------------------------------------
+
+====================================
+What is Cookie and Session Cookie ?
+====================================
+
+---> A "cookie" in the context of web technology is a small piece of data that a web server sends to a user's web browser. The browser stores this data, and the information is sent back to the server with every request made to the same domain. There are different types of cookies, and one of them is the "session cookie."
+
+---> A session cookie is a type of cookie that is temporary and exists only for the duration of a user's session on a website. When a user visits a website, a session cookie is created by the web server, and it is sent to the user's browser. This cookie contains a unique identifier, often in the form of a randomly generated alphanumeric string. It's used to keep track of the user's session as they navigate the website.
+
+---> Here's how session cookies work:
+
+-> When a user opens their web browser and visits a website, the server creates a session for that user.
+
+-> The server generates a unique session ID and sends it to the user's browser in the form of a session cookie.
+
+-> The user's browser stores the session cookie locally.
+
+-> As the user interacts with the website, the session ID stored in the session cookie is sent back to the server with each request.   This allows the server to recognize and associate the user's actions with their session.
+
+-> Once the user closes the browser or logs out, the session cookie is usually deleted, and the session on the server ends.
+------------------------------------------------------------------------------------------------------------------------------
+
+=====================================
+What is Cross-site scripting (XSS) ?
+=====================================
+
+---> Cross-Site Scripting, commonly abbreviated as XSS, is a type of security vulnerability in web applications that allows an attacker to inject malicious scripts into web pages viewed by other users. This occurs when a web application includes unvalidated or unescaped user input in the HTML it generates, which is then executed in the context of another user's web browser. XSS attacks can lead to the theft of sensitive information, session hijacking, and the spread of malware.
+
+---> How XSS Works:
+
+-> Injection Point: An attacker identifies an injection point in a web application, which could be in a search bar, comment section, or any input field that is not properly validated or sanitized.
+
+-> Payload: The attacker crafts a malicious payload, which is usually JavaScript code. This payload is designed to steal information, hijack sessions, or perform other malicious actions.
+
+-> Injection: The attacker submits or injects the payload into the vulnerable input field.
+
+-> Execution: When another user interacts with the page that contains the injected payload, the malicious script is executed in their browser, running in the context of the web application.
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+=====================================================
+Some shell commands related to Docker and Kubernates
+=====================================================
+
+docker run -p 8080:8080 in28min/hello-world-rest-api:0.0.1.RELEASE
+ 
+kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+kubectl scale deployment hello-world-rest-api --replicas=3
+kubectl delete pod hello-world-rest-api-58ff5dd898-62l9d
+kubectl autoscale deployment hello-world-rest-api --max=10 --cpu-percent=70
+kubectl edit deployment hello-world-rest-api #minReadySeconds: 15
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+ 
+gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
+kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
+kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+kubectl get events --sort-by=.metadata.creationTimestamp
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+kubectl get events --sort-by=.metadata.creationTimestamp
+kubectl get componentstatuses
+kubectl get pods --all-namespaces
+ 
+kubectl get events
+kubectl get pods
+kubectl get replicaset
+kubectl get deployment
+kubectl get service
+ 
+kubectl get pods -o wide
+ 
+kubectl explain pods
+kubectl get pods -o wide
+ 
+kubectl describe pod hello-world-rest-api-58ff5dd898-9trh2
+ 
+kubectl get replicasets
+kubectl get replicaset
+ 
+kubectl scale deployment hello-world-rest-api --replicas=3
+kubectl get pods
+kubectl get replicaset
+kubectl get events
+kubectl get events --sort.by=.metadata.creationTimestamp
+ 
+kubectl get rs
+kubectl get rs -o wide
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=DUMMY_IMAGE:TEST
+kubectl get rs -o wide
+kubectl get pods
+kubectl describe pod hello-world-rest-api-85995ddd5c-msjsm
+kubectl get events --sort-by=.metadata.creationTimestamp
+ 
+kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
+kubectl get events --sort-by=.metadata.creationTimestamp
+kubectl get pods -o wide
+kubectl delete pod hello-world-rest-api-67c79fd44f-n6c7l
+kubectl get pods -o wide
+kubectl delete pod hello-world-rest-api-67c79fd44f-8bhdt
+ 
+gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-c --project solid-course-258105
+docker login
+docker push in28min/mmv2-currency-exchange-service:0.0.11-SNAPSHOT
+docker push in28min/mmv2-currency-conversion-service:0.0.11-SNAPSHOT
+ 
+kubectl create deployment currency-exchange --image=in28min/mmv2-currency-exchange-service:0.0.11-SNAPSHOT
+kubectl expose deployment currency-exchange --type=LoadBalancer --port=8000
+kubectl get svc
+kubectl get services
+kubectl get pods
+kubectl get po
+kubectl get replicaset
+kubectl get rs
+kubectl get all
+ 
+kubectl create deployment currency-conversion --image=in28min/mmv2-currency-conversion-service:0.0.11-SNAPSHOT
+kubectl expose deployment currency-conversion --type=LoadBalancer --port=8100
+ 
+kubectl get svc --watch
+ 
+kubectl get deployments
+ 
+kubectl get deployment currency-exchange -o yaml >> deployment.yaml 
+kubectl get service currency-exchange -o yaml >> service.yaml 
+ 
+kubectl diff -f deployment.yaml
+kubectl apply -f deployment.yaml
+ 
+kubectl delete all -l app=currency-exchange
+kubectl delete all -l app=currency-conversion
+ 
+kubectl rollout history deployment currency-conversion
+kubectl rollout history deployment currency-exchange
+kubectl rollout undo deployment currency-exchange --to-revision=1
+ 
+kubectl logs currency-exchange-9fc6f979b-2gmn8
+kubectl logs -f currency-exchange-9fc6f979b-2gmn8 
+ 
+kubectl autoscale deployment currency-exchange --min=1 --max=3 --cpu-percent=5 
+kubectl get hpa
+ 
+kubectl top pod
+kubectl top nodes
+kubectl get hpa
+kubectl delete hpa currency-exchange
+ 
+kubectl create configmap currency-conversion --from-literal=CURRENCY_EXCHANGE_URI=http://currency-exchange
+kubectl get configmap
+ 
+kubectl get configmap currency-conversion -o yaml >> configmap.yaml
+ 
+watch -n 0.1 curl http://34.66.241.150:8100/currency-conversion-feign/from/USD/to/INR/quantity/10
+ 
+docker push in28min/mmv2-currency-conversion-service:0.0.12-SNAPSHOT
+docker push in28min/mmv2-currency-exchange-service:0.0.12-SNAPSHOT
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+STOMP (Simple Text Oriented Messaging Protocol): STOMP is a simple, text-based protocol, primarily used for messaging between clients and servers. In the context of Spring Boot, STOMP is often used over WebSockets. Spring provides good support for STOMP over WebSockets, which allows for message handling using a publish-subscribe model.
+
+Socket.IO: This is a JavaScript library for real-time web applications. It enables real-time, bidirectional and event-based communication between web clients and servers. It has its own protocol over WebSockets (as well as over other transports like polling) and comes with additional features like automatic reconnection, rooms, etc.
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+=====================
+NGINX Architecture
+=====================
+
+NGINX is an open source reverse proxy and web server designed for scale. It exploded in popularity as the first line of defense to backend infrastructures. Whether as a caching layer, load balancer, an API gateway or Web server, NGINX does it all.
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+==============================
+HTTPS
+==============================
+
+How to generate a self-signed SSL certificate using OpenSSL?
+
+# interactive
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 365
+
+# non-interactive and 10 years expiration
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj
+
+"/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"
+
+You can also add -nodes (short for "no DES") if you don't want to protect your private key with a passphrase. Otherwise it will prompt you for "at least a 4 character" password.
+
+The days parameter (365) you can replace with any number to affect the expiration date. It will then prompt you for things like "Country Name", but you can just hit Enter and accept the defaults.
+
+Add -subj '/CN=localhost' to suppress questions about the contents of the certificate (replace localhost with your desired domain).
+
+Self-signed certificates are not validated with any third party unless you import them to the browsers previously. If you need more security, you should use a certificate signed by a certificate authority (CA).
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+==============================
+NETWORKING
+==============================
+
+--> Switch is a Layer 2 device
+--> Router is a Layer 3 device
+--> Firewall blocks certain applications from sending data or blocks, certain unwanted packets to come through your network. In order to do that it needs to look at the IP address and ports.
+    they are effectively called transparent firewall (transparent proxy). Some firewalls go all the way and look at the application. Everything up to layer 4 is available to everyone,
+    they are public and never encrypted.
+--> Congestion control - Congestion control refers to the methods and protocols used to prevent network congestion by controlling the amount of data sent over the network.
+--> IP vs ICMP - IP (Internet Protocol) is responsible for addressing and routing packets of data so they can travel across networks and arrive at the correct destination.
+    ICMP (Internet Control Message Protocol) is used by network devices to send error messages and operational information indicating success or failure
+    when communicating with another IP address. While IP focuses on the delivery of data, ICMP provides feedback about the network's condition or any encountered problems.
+--> Routers decrease ttl (time to live).
+--> Kernel - The kernel is the core component of an operating system, managing system resources and allowing hardware and software to communicate.
+    It operates at a low level, handling tasks like memory management, process scheduling, and input/output operations. Conversely, a process is an instance of a running program,
+    managed by the kernel. The kernel creates and manages processes.
+--> Short polling - Short polling involves the client periodically sending requests to the server to check for updates,
+    leading to potentially unnecessary traffic if there are no updates.
+--> Long polling - Long polling is more efficient; the client sends a request to the server, which holds the request open until updates are available,
+    reducing unnecessary data exchange.
+
+
+--> HTTP/1.1 - HTTP/1.1 processes requests sequentially over one connection, causing potential delays.
+--> HTTP/2   - HTTP/2 introduces multiplexing for simultaneous requests, header compression to reduce overhead, and server push for faster content delivery
+--> HTTP/3   - HTTP/3, building on QUIC, switches from TCP to UDP, reducing connection establishment time and improving performance in lossy or unstable networks.
+    Each version aims to make web communication more efficient, with HTTP/3 addressing latency and reliability issues inherent in previous protocols.
+
+--> gRPC - gRPC is a modern, open-source remote procedure call (RPC) framework developed by Google that allows clients and servers to communicate transparently,
+    making it easier to build connected systems. gRPC uses HTTP/2 for transport, Protocol Buffers as the interface description language, and provides features like authentication,
+    load balancing, and bidirectional streaming. It's designed for high-performance, efficient communication between microservices, IoT devices, and mobile applications.
+    Common use cases include connecting microservices, enabling real-time communication in mobile applications, and building efficient APIs for internet-connected devices.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
