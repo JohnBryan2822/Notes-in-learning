@@ -1,0 +1,27 @@
+
+1. Why there are no pointers in Java?
+2. If there are no pointers in Java, then why do we get
+NullPointerException?
+3. 139. In what scenarios, a finally block will not be executed?
+	There are two main scenarios in which finally block is not
+	executed:
+	--> Program exits by calling system.exit() call.
+	--> A fatal error causes JVM to crash.
+4. 142. What is the concept of Exception Propagation?
+	In Exception Propagation, uncaught exceptions are propagated in the
+	call stack until stack becomes empty. This propagation is called
+	Exception Propagation.
+	Let say an exception propagates from one method to another method.
+	A() calls B(), which calls C(), which calls D(). And if D() throws
+	an exception, the exception will propagate from D to C to B to A,
+	unless one of the methods catches the exception.
+5. 143. When we override a method in a Child class, can we throw an
+	additional Exception that is not thrown by the Parent class method?
+	Yes, Java allows us to throw additional Exception in a child class,
+	but the additional exception should be an unchecked exception
+	(RuntimeException).
+6. Difference between Intension and Extension in a DataBase ?
+
+7. Difference between share lock and exclusive lock, definition of lock ? 
+
+8. 

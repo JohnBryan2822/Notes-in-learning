@@ -247,11 +247,15 @@ NETWORKING
     making it easier to build connected systems. gRPC uses HTTP/2 for transport, Protocol Buffers as the interface description language, and provides features like authentication,
     load balancing, and bidirectional streaming. It's designed for high-performance, efficient communication between microservices, IoT devices, and mobile applications.
     Common use cases include connecting microservices, enabling real-time communication in mobile applications, and building efficient APIs for internet-connected devices.
+    
+--> MAC - A media access control address (MAC address) is a unique identifier assigned to a network interface controller (NIC)
+    for use as a network address in communications within a network segment.
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------
 
-
+--> Explain Cache - Cache memory is an extremely fast memory type that acts as a buffer between RAM and the CPU. It holds frequently requested data and instructions
+    so that they are immediately available to the CPU when needed.
 
 
 
