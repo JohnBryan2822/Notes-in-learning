@@ -1,0 +1,16 @@
+
+
+--> AWS CloudFormation: This service provides a way to model, provision, and manage AWS and third-party resources by treating infrastructure as code.
+    CloudFormation allows you to use a simple text file, in JSON or YAML format, to model and provision, in an automated and secure manner, all the resources
+    needed for your applications across all regions and accounts. This file serves as the single source of truth for your cloud environment.
+
+--> AWS CloudFront: This is a content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally
+    with low latency and high transfer speeds. CloudFront works by caching content in edge locations closest to the end-users, thus improving the speed
+    and efficiency of content delivery.
+
+--> AWS WAF (Web Application Firewall): This is a web application firewall that helps protect web applications from common web exploits that could affect application availability,
+    compromise security, or consume excessive resources. AWS WAF gives you control over which traffic to allow or block to your web applications by defining customizable web security rules.
+    
+--> AWS ALB (Application Load Balancer): This is a load balancer that automatically distributes incoming application traffic across multiple targets,
+    such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It's best suited for load balancing of HTTP and HTTPS traffic, offering
+    advanced routing features, SSL termination, and WebSocket support. ALBs are highly scalable and can adapt to changing incoming traffic patterns.
