@@ -14,3 +14,39 @@
 --> AWS ALB (Application Load Balancer): This is a load balancer that automatically distributes incoming application traffic across multiple targets,
     such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It's best suited for load balancing of HTTP and HTTPS traffic, offering
     advanced routing features, SSL termination, and WebSocket support. ALBs are highly scalable and can adapt to changing incoming traffic patterns.
+    
+--> Which instance in an ASG is terminated first when a scale-in happens?
+	(Default Termination Policy) Within constraints, goal is to distribute instances evenly across available AZs. Next priority is to terminate older instances.
+	
+--> Preventing frequent scale up and down ?
+	Adjust cooldown period to suit your need (default - 300 seconds). Align CloudWatch monitoring interval
+	
+--> I would want to protect newly launched instances from scale-in ?
+	Enable instance scale-in protection
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
