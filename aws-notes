@@ -15,6 +15,8 @@
     such as Amazon EC2 instances, containers, IP addresses, and Lambda functions. It's best suited for load balancing of HTTP and HTTPS traffic, offering
     advanced routing features, SSL termination, and WebSocket support. ALBs are highly scalable and can adapt to changing incoming traffic patterns.
     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
 --> Which instance in an ASG is terminated first when a scale-in happens?
 	(Default Termination Policy) Within constraints, goal is to distribute instances evenly across available AZs. Next priority is to terminate older instances.
 	
@@ -24,10 +26,25 @@
 --> I would want to protect newly launched instances from scale-in ?
 	Enable instance scale-in protection
 	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
+--> Network load balancer (Layer 4) can be assigned a Static IP / Elastic IP.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+==================
+Security Group
+==================
+
+--> Can source/destination of a security group be another security group?
+	Yes. It can even be same security group.
+
+--> A new security group is created and assigned to a database and an ec2 instance. Can these instances talk to each other?
+	No. New security group does not allow any incoming traffic from same security group. Two resources associated with same
+	security group can talk with each other only if you configure rules allowing the traffic.
 	
-	
-	
+--> The default security group (unchanged) in the VPC is assigned to a database and an ec2 instance. Can these instances talk to each other?
+	Yes. Default security group (by default) has a rule allowing traffic between resources with same security group.
 	
 	
 	
