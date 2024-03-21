@@ -47,9 +47,77 @@ Security Group
 	Yes. Default security group (by default) has a rule allowing traffic between resources with same security group.
 	
 	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
+====================
+DynamoDB APIs
+====================
+
+    aws dynamodb scan \
+    --table-name MyTodos \
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --filter-expression "attribute_exists(additional_attribute)"
+     
+    aws dynamodb query \
+    --table-name MyTodos \
+    --key-condition-expression "id=:id" \
+    --expression-attribute-values '{":id": {"S": "2"} }'
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --projection-expression "username"
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --projection-expression "username, #desc" \
+    --expression-attribute-names '{"#desc":"desc" }' \
+    --output table
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --filter-expression "begins_with(username,:username)" \
+    --expression-attribute-values '{":username": {"S": "Ranga"} }'
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --filter-expression "contains(#desc,:desc)" \
+    --expression-attribute-names '{"#desc":"desc" }' \
+    --expression-attribute-values '{":desc": {"S": "Dance"} }'
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --max-items 2
+     
+    aws dynamodb scan \
+    --table-name MyTodos \
+    --max-items 2 \
+    --starting-token eyJFeGNsdXNpdmVTdGFydEtleSI6IG51bGwsICJib3RvX3RydW5jYXRlX2Ftb3VudCI6IDJ9
+     
+    aws dynamodb get-item \
+    --table-name MyTodos \
+    --key '{"id": {"S": "2"} }'
+     
+    aws dynamodb update-item \
+    --table-name MyTodos \
+    --key '{"id": {"S": "2"} }' \
+    --update-expression "SET username=:username, newattr=:new" \
+    --expression-attribute-values '{":username": {"S": "Ravi"}, ":new": {"S": "NEW_ATTR_VALUE"} }'
+     
+    aws dynamodb update-item \
+    --table-name MyTodos \
+    --key '{"id": {"S": "2"} }' \
+    --update-expression "REMOVE newattr"
+     
+    aws dynamodb delete-item \
+    --table-name MyTodos \
+    --key '{"id": {"S": "2"} }' \
+    --condition-expression "#desc=:desc" \
+    --expression-attribute-names '{"#desc":"desc" }' \
+    --expression-attribute-values '{":desc": {"S": "Get certified on AWS"} }'
 	
-	
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	
 	
